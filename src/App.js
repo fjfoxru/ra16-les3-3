@@ -1,25 +1,20 @@
 import logo from './logo.svg';
+import messagesList from './data/messages';
+import MessageHistory from './components/MessageHistory/MessageHistory';
 import './App.css';
 
 function App() {
+  const messages = messagesList;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="clearfix container">
+          <div className="chat">
+            <div className="chat-history">
+              {messages.length > 0 && <MessageHistory list={messages}/>}
+            </div>
+          </div>
+        </div>  
     </div>
   );
 }
-
 export default App;
